@@ -1,18 +1,29 @@
-import { Link } from "expo-router";
+import { useUser } from "@clerk/clerk-expo";
+import { Link, Redirect, useRootNavigationState } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
-  return (
-    <SafeAreaView className="bg-primary h-full flex items-center justify-center p-10">
-      <ScrollView>
-        <Link href={'/login'}>
-          <Text className="text-light">Login</Text>
-        </Link>
-      </ScrollView>
+  const { user } = useUser();
+  const rootNavigationState = useRootNavigationState();
 
-      <StatusBar backgroundColor="#222831" style="light" />
-    </SafeAreaView>
+  useEffect(() => {
+    checkNavLoaded();
+  }, [])
+
+  const checkNavLoaded = () => {
+    if (!rootNavigationState.key) {
+      return null;
+    }
+  }
+
+  return user && (
+    <View className="flex">
+      {
+        user ? <Redirect href={'/(tabs)/home'} /> : <Redirect href={'/login/index'} />
+      }
+    </View>
   );
 }

@@ -11,5 +11,6 @@ import calendar from "../assets/images/calendar.png";
 import login from "../assets/images/login.png";
 import sex from "../assets/images/sex.png";
 import weight from "../assets/images/weight.png";
+import paw from "../assets/images/paw.png";
 
-export default { bone, calendar, login, sex, weight };
+export default { bone, calendar, login, sex, weight, paw };
