@@ -2,12 +2,8 @@ import { Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+    <View className="bg-primary">
+      <Text className="font-pregular text-lg text-white">Edit app/index.tsx to edit this screen.</Text>
     </View>
   );
 }
