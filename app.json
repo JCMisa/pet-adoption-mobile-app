@@ -4,13 +4,13 @@
     "slug": "PurrfectMatch",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/purrfectmatch-logo.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "PurrfectMatch",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/purrfectmatch-logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#222831"
     },
     "ios": {
       "supportsTablet": true
@@ -18,7 +18,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#222831"
       }
     },
     "web": {

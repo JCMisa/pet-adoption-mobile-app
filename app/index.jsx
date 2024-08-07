@@ -1,9 +1,18 @@
-import { Text, View } from "react-native";
+import { Link } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { ScrollView, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   return (
-    <View className="bg-primary">
-      <Text className="font-pregular text-lg text-white">Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    <SafeAreaView className="bg-primary h-full flex items-center justify-center p-10">
+      <ScrollView>
+        <Link href={'/login'}>
+          <Text className="text-light">Login</Text>
+        </Link>
+      </ScrollView>
+
+      <StatusBar backgroundColor="#222831" style="light" />
+    </SafeAreaView>
   );
 }
