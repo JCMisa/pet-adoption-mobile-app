@@ -14,7 +14,7 @@ export default function Index() {
   }, [])
 
   const checkNavLoaded = () => {
-    if (!rootNavigationState.key) {
+    if (!rootNavigationState?.key) {
       return null;
     }
   }
