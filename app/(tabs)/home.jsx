@@ -4,23 +4,23 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar'
 import Header from '@/components/Home/Header'
 import Slider from '../../components/Home/Slider'
+import PetListByCategory from '@/components/Home/PetListByCategory'
 
 const Home = () => {
     return (
         <SafeAreaView className="bg-primary h-full p-3">
-            <ScrollView>
+            <View>
                 {/* header */}
                 <Header />
 
                 {/* slider */}
                 <Slider />
 
-                {/* category */}
-
-                {/* list of pets */}
+                {/* pet list and category */}
+                <PetListByCategory />
 
                 {/* add new pet */}
-            </ScrollView>
+            </View>
 
             <StatusBar backgroundColor="#222831" style="light" />
         </SafeAreaView>

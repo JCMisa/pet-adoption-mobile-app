@@ -4,7 +4,7 @@ import { images } from '@/constants'
 
 const EmptyState = ({ title, subtitle }) => {
     return (
-        <View className='flex justify-center items-center px-4 max-h-[160px] ml-12'>
+        <View className='flex justify-center items-center px-4 max-h-[160px]'>
             <Image source={images.empty} className='w-[270px] max-h-[120px]' resizeMode='contain' />
 
             <Text className="text-sm text-center font-psemibold text-white">
