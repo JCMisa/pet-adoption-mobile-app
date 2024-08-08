@@ -4,10 +4,10 @@ import { collection, getDocs } from 'firebase/firestore'
 import { db } from '@/config/FirebaseConfig'
 import EmptyState from '../Helpers/EmptyState'
 
-const Category = () => {
+const Category = ({ category }) => {
     const [categoryList, setCategoryList] = useState([])
     const [refreshing, setRefreshing] = useState(false)
-    const [selectedCategory, setSelectedCategory] = useState('Cats')
+    const [selectedCategory, setSelectedCategory] = useState('Fish')
 
     const getCategories = async () => {
         setCategoryList([])
@@ -24,23 +24,28 @@ const Category = () => {
 
     const onRefresh = async () => {
         setRefreshing(true)
-        await getSliders(); // get the data again
+        await getCategories(); // get the data again
         setRefreshing(false)
     }
 
     return (
-        <View className="mt-3">
-            <Text className="font-pmedium text-lg mb-5 text-light">Category</Text>
+        <View className="-mt-3">
+            <Text className="font-pmedium text-md mb-5 text-light">Category</Text>
             <FlatList
+                nestedScrollEnabled={true}
                 data={categoryList}
                 keyExtractor={(item, index) => item?.id || index}
                 renderItem={({ item, index }) => (
-                    <View key={index} className="flex-1 flex items-center justify-center">
-                        <TouchableOpacity className={`${selectedCategory == item?.name ? 'border border-secondary rounded-lg' : 'opacity-70'}`}>
+                    <TouchableOpacity onPress={() => {
+                        setSelectedCategory(item?.name);
+                        category(item.name);
+                    }} key={index} className="flex-1 flex items-center justify-center"
+                    >
+                        <View className={`${selectedCategory == item?.name ? 'border border-secondary rounded-lg' : 'opacity-60'}`}>
                             <Image source={{ uri: item?.imageUrl }} className="w-[60px] h-[60px] rounded-lg" />
-                        </TouchableOpacity>
+                        </View>
                         <Text className="text-center font-pregular text-white">{item?.name}</Text>
-                    </View>
+                    </TouchableOpacity>
                 )}
                 ListEmptyComponent={() => (
                     <EmptyState title="No Categories to Show" subtitle="Please wait while we are fetching the data" />

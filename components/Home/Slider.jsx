@@ -50,7 +50,7 @@ const SliderItem = ({ activeItem, item, index }) => {
                     source={{
                         uri: item.imageUrl,
                     }}
-                    className="w-52 h-72 rounded-[33px] my-5 overflow-hidden shadow-lg shadow-black/40"
+                    className="w-52 h-56 rounded-[33px] my-5 overflow-hidden shadow-lg shadow-black/40"
                     resizeMode="cover"
                 />
             </TouchableOpacity>
@@ -90,8 +90,9 @@ const Slider = () => {
     };
 
     return (
-        <View className="mt-10 flex items-center justify-center text-center">
+        <View className="mt-3 flex items-center justify-center text-center">
             <FlatList
+                nestedScrollEnabled={true}
                 data={sliderList}
                 keyExtractor={(item, index) => item?.id || index}
                 renderItem={({ item, index }) => (
