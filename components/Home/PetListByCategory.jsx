@@ -19,7 +19,7 @@ const PetListByCategory = () => {
 
     const getPetList = async (category) => {
         setPetList([])
-        // collect all records inside Pets collection where category property is equal to category paramete passed in the method
+        // collect all records inside Pets collection where category property is equal to category parameter passed in the method
         const q = query(collection(db, 'Pets'), where('category', '==', category))
         const result = await getDocs(q)
 
