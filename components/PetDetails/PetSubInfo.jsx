@@ -5,13 +5,13 @@ import PetInfoCard from './PetInfoCard'
 
 const PetSubInfo = ({ pet }) => {
     return (
-        <View className='p-7 flex flex-col gap-3'>
+        <View className='px-5 flex flex-col gap-3'>
             <View className='flex flex-row gap-3'>
                 <View className='flex flex-row flex-1 items-center bg-black-100 p-3 rounded-md gap-5'>
                     <Image source={images.calendar} className='w-[40px] h-[40px]' />
                     <View className='flex-1'>
                         <Text className='font-pregular text-xs text-light'>Age</Text>
-                        <Text className='font-pmedium text-xl text-white'>{pet?.age}</Text>
+                        <Text className='font-pmedium text-xl text-white'>{pet?.age} Years</Text>
                     </View>
                 </View>
 
@@ -37,7 +37,7 @@ const PetSubInfo = ({ pet }) => {
                     <Image source={images.weight} className='w-[40px] h-[40px]' />
                     <View className='flex-1'>
                         <Text className='font-pregular text-xs text-light'>Weight</Text>
-                        <Text className='font-pmedium text-xl text-white'>{pet?.weight}</Text>
+                        <Text className='font-pmedium text-xl text-white'>{pet?.weight} Kg</Text>
                     </View>
                 </View>
             </View>

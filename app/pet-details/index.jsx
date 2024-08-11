@@ -1,8 +1,10 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView } from 'react-native'
 import React, { useEffect } from 'react'
 import { useLocalSearchParams, useNavigation } from 'expo-router'
 import PetInfo from '@/components/PetDetails/PetInfo';
 import PetSubInfo from '@/components/PetDetails/PetSubInfo';
+import AboutPet from '@/components/PetDetails/AboutPet';
+import OwnerInfo from '@/components/PetDetails/OwnerInfo';
 
 const PetDetails = () => {
     const pet = useLocalSearchParams();
@@ -11,24 +13,29 @@ const PetDetails = () => {
     useEffect(() => {
         navigation.setOptions({
             headerTransparent: true,
-            headerTitle: ''
+            headerTitle: '',
+            headerTintColor: 'white'
         })
     }, [])
 
     return (
-        <View className='bg-black-200 h-full'>
-            {/* pet info */}
-            <PetInfo pet={pet} />
+        <SafeAreaView className='bg-black-200 h-full'>
+            <ScrollView>
+                {/* pet info */}
+                <PetInfo pet={pet} />
 
-            {/* pet subinfo */}
-            <PetSubInfo pet={pet} />
+                {/* pet subinfo */}
+                <PetSubInfo pet={pet} />
 
-            {/* about */}
+                {/* about */}
+                <AboutPet pet={pet} />
 
-            {/* owner details */}
+                {/* owner details */}
+                <OwnerInfo pet={pet} />
+            </ScrollView>
 
             {/* adopt button */}
-        </View>
+        </SafeAreaView>
     )
 }
 
