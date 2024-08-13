@@ -1,7 +1,8 @@
 import { View, Text, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { collection, getDoc, getDocs, query, where } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '@/config/FirebaseConfig'
+import Feather from '@expo/vector-icons/Feather';
 
 const OwnerInfo = ({ pet }) => {
     const [userInfo, setUserInfo] = useState([])
@@ -22,9 +23,18 @@ const OwnerInfo = ({ pet }) => {
         console.log("pet info: ", pet);
     }, [])
     return (
-        <View>
-            <Image source={{ uri: userInfo?.imageUrl }} className='w-[40px] h-[40px]' />
-            <Text className='text-white'>{userInfo?.name}</Text>
+        <View className='py-7 flex flex-row items-center justify-between border border-radius border-gray-100 shadow rounded-lg w-[95%] ml-3 p-5 bg-black-100'>
+
+            <View className='flex flex-row items-center gap-3'>
+                <Image source={{ uri: userInfo?.imageUrl }} className='w-[50px] h-[50px] rounded-full' />
+
+                <View>
+                    <Text className='text-white font-pmedium text-lg'>{userInfo?.name}</Text>
+                    <Text className='text-light font-pregular text-xs'>Pet Owner</Text>
+                </View>
+            </View>
+
+            <Feather name="send" size={24} color="white" />
         </View>
     )
 }

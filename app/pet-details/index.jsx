@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useEffect } from 'react'
 import { useLocalSearchParams, useNavigation } from 'expo-router'
 import PetInfo from '@/components/PetDetails/PetInfo';
@@ -32,9 +32,17 @@ const PetDetails = () => {
 
                 {/* owner details */}
                 <OwnerInfo pet={pet} />
+                <View className='h-28'></View>
             </ScrollView>
 
             {/* adopt button */}
+            <View className='absolute w-full bottom-0'>
+                <TouchableOpacity className='p-5 bg-secondary'>
+                    <Text className='text-center font-pmedium text-lg text-white'>
+                        Adopt Me
+                    </Text>
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     )
 }
