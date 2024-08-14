@@ -6,6 +6,7 @@ import Header from '@/components/Home/Header'
 import Slider from '../../components/Home/Slider'
 import PetListByCategory from '@/components/Home/PetListByCategory'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { router } from 'expo-router'
 
 const Home = () => {
     return (
@@ -21,7 +22,7 @@ const Home = () => {
                 <PetListByCategory />
 
                 {/* add new pet */}
-                <TouchableOpacity className='flex flex-row gap-3 items-center p-5 w-[90%] ml-3 mt-5 bg-light-100 border border-light rounded-lg border-dashed justify-center'>
+                <TouchableOpacity onPress={() => router.push('/add-new-pet')} className='flex flex-row gap-3 items-end p-5 w-[90%] ml-3 mt-5 bg-secondary-100 border border-secondary rounded-lg border-dashed justify-center'>
                     <MaterialIcons name="pets" size={24} className="text-primary" />
                     <Text className="text-primary text-lg font-pbold">Add New Pet</Text>
                 </TouchableOpacity>
