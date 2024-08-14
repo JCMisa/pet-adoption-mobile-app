@@ -1,11 +1,15 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useRouter } from 'expo-router';
 import MarkFav from '../MarkFav';
 
 const PetListItem = ({ info }) => {
     const router = useRouter()
+
+    useEffect(() => {
+        console.log("pet info: ", info);
+    }, [])
 
     return (
         <TouchableOpacity onPress={() => router.push({
@@ -21,7 +25,8 @@ const PetListItem = ({ info }) => {
                 <Text className='font-pmedium text-lg text-light'>{info?.name}</Text>
                 <View className='flex flex-row justify-between items-center'>
                     <Text className="font-pregular text-gray-400 text-xs">
-                        {info?.breed.slice(0, 10)}{info?.breed.length > 10 ? "..." : info?.breed.slice(11, info?.breed.length)}
+                        {info ? info?.breed.slice(0, 10) : ""} {info ? info?.breed.length > 10 ? "..." : info?.breed.slice(11, info?.breed.length) : ""}
+                        {/* {info?.breed} */}
                     </Text>
                     <Text className="font-pregular text-secondary bg-light px-2 py-2 text-sm rounded-lg">
                         {info?.age} years
