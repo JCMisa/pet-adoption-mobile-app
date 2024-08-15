@@ -61,7 +61,7 @@ const Inbox = () => {
                 renderItem={({ item, index }) => (
                     <View key={index}>
                         <UserItem userInfo={item} />
-                        {console.log(item)}
+                        {console.log('other user infos: ', item)}
                     </View>
                 )}
                 ListEmptyComponent={() => (

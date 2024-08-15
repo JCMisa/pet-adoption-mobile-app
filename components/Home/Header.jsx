@@ -9,9 +9,9 @@ const Header = () => {
         <View className="flex flex-row justify-between items-end">
             <View>
                 <Text className="font-pregular text-sm text-light">Welcome 👋</Text>
-                <Text className="font-pmedium text-xl text-white">{user?.fullName}</Text>
+                <Text className="font-pmedium text-xl text-white">{user ? user?.fullName : 'Unknown'}</Text>
             </View>
-            <Image source={{ uri: user?.imageUrl }} alt='userImage' className="w-10 h-10 rounded-full" />
+            <Image source={{ uri: user ? user?.imageUrl : 'https://i.pinimg.com/originals/f1/0f/f7/f10ff70a7155e5ab666bcdd1b45b726d.jpg' }} alt='userImage' className="w-10 h-10 rounded-full" />
         </View>
     )
 }

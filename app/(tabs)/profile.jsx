@@ -57,9 +57,13 @@ const Profile = () => {
             <Text className='font-pbold text-2xl text-light'>Profile</Text>
 
             <View className='flex items-center justify-center mt-10 mb-10'>
-                <Image source={{ uri: user?.imageUrl }} className='w-[80px] h-[80px] rounded-full' />
-                <Text className='font-pbold text-xl mt-2 text-white'>{user?.fullName}</Text>
-                <Text className='font-pthin text-xs text-light'>{user?.primaryEmailAddress?.emailAddress}</Text>
+                <Image source={{ uri: user ? user?.imageUrl : 'https://i.pinimg.com/originals/f1/0f/f7/f10ff70a7155e5ab666bcdd1b45b726d.jpg' }} className='w-[80px] h-[80px] rounded-full' />
+                <Text className='font-pbold text-xl mt-2 text-white'>
+                    {user ? user?.fullName : 'Unknown'}
+                </Text>
+                <Text className='font-pthin text-xs text-light'>
+                    {user ? user?.primaryEmailAddress?.emailAddress : 'unknown@example.com'}
+                </Text>
             </View>
 
             <FlatList

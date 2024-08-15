@@ -29,17 +29,23 @@ const Favorite = () => {
 
     const getFavPetId = async () => {
         setLoading(true)
+        setFavIds([])
         try {
-            const querySnapshot = await getDocs(collection(db, 'UserFavPet'));
+            const querySnapshot = await getDocs(query(collection(db, 'UserFavPet'), where('email', '==', user?.primaryEmailAddress?.emailAddress)));
+
             // created new array variable that stores the the mapped favorites
             // this will return nested arrays, first element array is the array with elements and the second is the array without elements
-            const favoritePetIds = querySnapshot.docs.map(doc => doc.data().favorites);
-            console.log("favorite pet ids:", favoritePetIds[0]);
-            setFavIds(favoritePetIds[0]);
-            console.log("favorite pet ids state:", favIds);
-            getFavPetList(favoritePetIds[0]);
+            // const favoritePetIds = querySnapshot.docs.map(doc => doc.data().favorites);
+            querySnapshot.forEach((favorite) => {
+                console.log("favorite pet infos: ", favorite.data());
+                setFavIds(favorite.data().favorites)
+            })
+            // console.log("favorite pet ids:", favoritePetIds);
+            // setFavIds(favoritePetIds[0]);
+            console.log("favorite pet ids states:", favIds);
+            getFavPetList(favIds);
         } catch (error) {
-            console.error("Error fetching favorite pet IDs:", error);
+            console.error("Error fetching favorite pet ID:", error);
         } finally {
             setLoading(false)
         }

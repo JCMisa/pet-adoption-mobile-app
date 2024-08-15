@@ -1,5 +1,5 @@
 import { useUser } from "@clerk/clerk-expo";
-import { Link, Redirect, useRootNavigationState } from "expo-router";
+import { Link, Redirect, router, useRootNavigationState } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { ScrollView, Text, View } from "react-native";
@@ -19,10 +19,10 @@ export default function Index() {
     }
   }
 
-  return user && (
+  return (
     <View className="flex">
       {
-        user ? <Redirect href={'/(tabs)/home'} /> : <Redirect href={'/login/index'} />
+        user ? <Redirect href={'/(tabs)/home'} /> : <Redirect href={'/login'} />
       }
     </View>
   );
