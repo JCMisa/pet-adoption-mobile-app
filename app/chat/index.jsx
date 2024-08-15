@@ -1,12 +1,13 @@
-import { View, Text, ScrollView, Platform, KeyboardAvoidingView } from 'react-native'
+import { View, Text, ScrollView, Platform, KeyboardAvoidingView, Pressable } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { useLocalSearchParams, useNavigation } from 'expo-router'
+import { router, useLocalSearchParams, useNavigation } from 'expo-router'
 import { addDoc, collection, doc, getDoc, getDocs, onSnapshot, query, setDoc, where } from 'firebase/firestore';
 import { db } from '@/config/FirebaseConfig';
 import { useUser } from '@clerk/clerk-expo';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GiftedChat } from 'react-native-gifted-chat'
 import moment from 'moment';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const ChatScreen = () => {
     const { user } = useUser();
@@ -45,9 +46,12 @@ const ChatScreen = () => {
         console.log('user to chat state: ', chatMate);
 
         navigation.setOptions({
-            headerTransparent: true,
-            headerTitle: '',
-            headerTintColor: 'white'
+            headerTransparent: false,
+            headerTitle: otherUser[0].name,
+            headerTintColor: 'white',
+            headerStyle: {
+                backgroundColor: '#222831'
+            }
         })
     }
 
@@ -59,14 +63,14 @@ const ChatScreen = () => {
 
     return (
         <SafeAreaView className='bg-primary h-full'>
-            <ScrollView>
-                <View className='px-3 mt-12'>
-                    <Text className='text-white font-pbold text-2xl p-5'>
-                        {chatMate?.name ? chatMate?.name : 'Unknown'} <Text className='text-xs font-plight text-light'>(pet owner)</Text>
-                    </Text>
-                </View>
-            </ScrollView>
-
+            {/* <View>
+                <Pressable onPress={() => router.replace('/(tabs)/inbox')} className='mt-[-10]'>
+                    <View className='flex flex-row items-end'>
+                        <Text className='text-white px-3 text-xl font-pmedium'>{chatMate?.name}</Text>
+                        <Text className='text-xs font-plight text-light'>(pet owner)</Text>
+                    </View>
+                </Pressable>
+            </View> */}
             <GiftedChat
                 messages={messages}
                 onSend={messages => onSend(messages)}

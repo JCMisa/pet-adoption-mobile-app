@@ -67,6 +67,10 @@ const PetDetails = () => {
                         imageUrl: userInfo.imageUrl,
                         name: userInfo.name
                     }
+                ],
+                userIds: [
+                    user?.primaryEmailAddress?.emailAddress,
+                    userInfo.email
                 ]
             })
             router.push({

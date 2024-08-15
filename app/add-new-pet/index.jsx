@@ -114,7 +114,7 @@ const AddNewPet = () => {
     return (
         <SafeAreaView className='bg-black-200 h-full p-7 mt-5'>
             <ScrollView>
-                <Text className='text-white font-pbold text-xl'>Add New Pet</Text>
+                <Text className='text-light font-pbold text-xl'>Add New Pet</Text>
 
                 <Pressable onPress={imagePicker} className='border border-secondary-100 bg-black-100 p-3 w-[80px] shadow rounded-lg mt-5'>
                     {

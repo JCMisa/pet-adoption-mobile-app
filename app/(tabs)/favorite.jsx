@@ -72,7 +72,7 @@ const Favorite = () => {
                 )}
                 numColumns={2}
                 ListHeaderComponent={() => (
-                    <Text className='font-pbold text-xl text-white'>Favorites</Text>
+                    <Text className='font-pbold text-xl text-light'>Favorites</Text>
                 )}
                 ListEmptyComponent={() => (
                     <EmptyState title="No Favorites to Show" subtitle="Please wait while we are fetching the data" />
