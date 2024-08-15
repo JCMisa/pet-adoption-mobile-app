@@ -108,7 +108,7 @@ const AddNewPet = () => {
             id: docId
         })
         setLoading(false)
-        router.replace('/')
+        router.replace('/(tabs)/home')
     }
 
     return (
