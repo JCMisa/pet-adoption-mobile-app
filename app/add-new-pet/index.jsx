@@ -103,7 +103,7 @@ const AddNewPet = () => {
             user: {
                 name: user?.fullName,
                 email: user?.primaryEmailAddress?.emailAddress,
-                imageUrl: 'https://static.vecteezy.com/system/resources/previews/043/903/985/non_2x/user-profile-icon-illustration-vector.jpg'
+                imageUrl: user?.imageUrl
             },
             id: docId
         })

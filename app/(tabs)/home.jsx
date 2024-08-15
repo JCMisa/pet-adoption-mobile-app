@@ -23,7 +23,6 @@ const Home = () => {
 
                 {/* add new pet */}
                 <TouchableOpacity onPress={() => router.push('/add-new-pet')} className='flex flex-row gap-3 items-end p-5 w-[90%] ml-3 mt-5 bg-secondary-100 border border-secondary rounded-lg border-dashed justify-center'>
-                    <MaterialIcons name="pets" size={24} className="text-primary" />
                     <Text className="text-primary text-lg font-pbold">Add New Pet</Text>
                 </TouchableOpacity>
             </ScrollView>
