@@ -66,6 +66,23 @@ export default function RootLayout() {
   }
 
   return (
+    // <View>
+    //   <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
+    //     <Stack>
+    //       <Stack.Screen name="index" options={{ headerShown: false }} />
+    //       <Stack.Screen name="login/index" options={{ headerShown: false }} />
+    //       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    //       <Stack.Screen name="add-new-pet/index" options={{ headerShown: false }} />
+    //     </Stack>
+    //   </ClerkProvider>
+    //   <Pressable className='p-10' onPress={() => router.push('/(tabs)/home')}>
+    //     <Text>Go Home</Text>
+    //   </Pressable>
+    //   <Pressable className='p-10' onPress={() => router.push('/login')}>
+    //     <Text>Go Login</Text>
+    //   </Pressable>
+    // </View>
+
     <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
