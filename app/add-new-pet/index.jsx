@@ -1,6 +1,6 @@
 import { View, Text, Image, TextInput, ScrollView, TouchableOpacity, Pressable, ToastAndroid, ActivityIndicator } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { useNavigation } from 'expo-router'
+import { router, useNavigation } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from '@/constants';
 import { Picker } from '@react-native-picker/picker';
@@ -80,7 +80,7 @@ const AddNewPet = () => {
 
     // use to upload pet image to firebase storage
     const uploadImage = async () => {
-        // setLoading(true)
+        setLoading(true)
         const resp = await fetch(image)
         const blobImage = await resp.blob();
         const storageRef = ref(storage, '/PetAdopt/' + Date.now() + '.jpg')
@@ -107,7 +107,8 @@ const AddNewPet = () => {
             },
             id: docId
         })
-        // setLoading(false)
+        setLoading(false)
+        router.replace('/')
     }
 
     return (
